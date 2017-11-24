@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TestWebserviceCxf3Service" targetNamespace="http://cc.bb.aa/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cc.bb.aa/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://cc.bb.aa/" schemaLocation="testwebservicecxf3_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="shootResponse">
+    <wsdl:part name="parameters" element="tns:shootResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="shoot">
+    <wsdl:part name="parameters" element="tns:shoot">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Fly">
+    <wsdl:operation name="shoot">
+      <wsdl:input name="shoot" message="tns:shoot">
+    </wsdl:input>
+      <wsdl:output name="shootResponse" message="tns:shootResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestWebserviceCxf3ServiceSoapBinding" type="tns:Fly">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="shoot">
+      <soap:operation soapAction="urn:Shoot" style="document"/>
+      <wsdl:input name="shoot">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="shootResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestWebserviceCxf3Service">
+    <wsdl:port name="TestWebserviceCxf3Port" binding="tns:TestWebserviceCxf3ServiceSoapBinding">
+      <soap:address location="http://localhost:8081/testWebservice/services/TestWebserviceCxf3Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,19 @@
+<xs:schema xmlns:tns="http://cc.bb.aa/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://cc.bb.aa/" version="1.0">
+
+  <xs:element name="shoot" type="tns:shoot"/>
+
+  <xs:element name="shootResponse" type="tns:shootResponse"/>
+
+  <xs:complexType name="shoot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="shootResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
